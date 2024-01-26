@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .login-box {
+            position: relative;
+
+            box-sizing: border-box;
+            border: 1px solid #aaa;
+            margin: 300px auto;
+            width: 458px;
+            height: 310px;
+            background-color: white;
+        }
+
+        .msg-box {
+            position: absolute;
+            right: -30px;
+            top: -20px;
+            /* z-index: -1; */
+            border: 1px solid #03c75a;
+            border-radius: 25px;
+            width: 246px;
+            height: 25px;
+            background-color: white;
+        }
+
+        .x {
+            transform: translate(-50%, -50%); /* x버튼 중간으로 맞추기 */
+            position: absolute;
+            right: 50%;
+            top: 50%;
+            left: 50%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="login-box" id="container">
+        <div class="msg-box"> 
+            <div class="x">x</div>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

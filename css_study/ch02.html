@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            box-sizing: border-box;
+            margin: 40px;
+            border: 3px solid #222;
+            /* border-width: 1px 2px 3px 4px;
+            border-top: 5px solid red; */
+            border-top-left-radius: 10px;
+            padding: 20px 10px 5px;
+            padding-left: 10px;
+            width: 100px;
+            height: 100px;
+            background-color: #aaa;
+        }
+
+        /* inline은 글자의 너비,높이를 기준으로 하기때문에 margid=위아래 적용X, */
+        /* display: inline block; =  */
+        .text {
+            display: inline-block; 
+            margin: 20px;
+            padding: 10px;
+            width: 100px;
+            height: 100px;
+            background-color: #222;
+            color: white;
+        }
+
+        .box1 {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 800px;
+            background-color: #aaa;
+        }
+
+        .box2 {
+            margin: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">테스트</div>
+    <input type="text">
+
+    <span class="text">일반 텍스트</span>
+
+    <div class="box1">
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

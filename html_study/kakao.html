@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .main-content {
+                margin: 40px auto 42px;
+                border: 1px solid #aaa;
+                padding: 0 69px;
+                width: 580px;
+                height: 100%;
+                font-size: 12px;
+                box-sizing: border-box;
+            }
+            
+            div input, div button {
+                display: inline-block;
+                margin: 0% 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main_box">
+            <div class="title">kakao</div>
+            <div  class="main-content">
+                <form action="">
+                    <div>
+                        <div class="input_box">
+                            <input
+                                class="input"
+                                name="user_id"
+                                type="text"
+                                placeholder="카카오메일 아이디, 이메일, 전화번호"
+                            />
+                        </div>
+                        <div class="input_box">
+                            <input
+                                class="input"
+                                name="user_password"
+                                type="password"
+                                placeholder="비밀번호"
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <input id="loginInfoSave" value="false" name="loginInfoSave" type="radio"/>
+                        <label for="loginInfoSave">간편로그인 정보 저장 ⓘ</label>
+                    </div>
+                    <div>
+                        <button type="submit" id="login_btn" class="btn">로그인</button>
+                        <div id="bar">--------------------------------- 또는 ---------------------------------<div>
+                        <button type="button" id="qr_btn" class="btn">QR코드 로그인</button>
+                    </div>
+                </form>
+                <div id="s_btn_box">
+                    <div>
+                        <button type="button" class="s_btn">회원가입</button>
+                    </div>
+                    <div>
+                        <button type="button" class="s_btn">계정 찾기</button>
+                        <button type="button" class="s_btn">비밀번호 찾기</button>
+                    </div>
+                </div>
+                <footer>
+                    <div id="footer_box">
+                        <ul>
+                            <li>이용약관</li>
+                            <li>개인정보 처리방침</li>
+                            <li>운영정책</li>
+                            <li>고객센터</li>
+                            <li>공지사항</li>
+                            <li>한국어</li>
+                        </ul>
+                        <div id="copy">Copyright © Kakao Corp. All rights reserved.</div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>
