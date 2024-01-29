@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .container {
+            /* 부모요소에 flex를 하면 우측정렬 / inline-block과의 차이점 : flex를 하면 자간이 생기지 않는다. (display:flex는 부모요소에서 사용)*/
+            /* flex를 쓰는 이유 : 1. 우측 정렬 2. 정렬(justify-content, align-items) */
+            display: flex;
+            /* 행(row)방향 -> 열(column)으로 정렬 / 기본값: row */
+            flex-direction: row;
+            /*  space-around: 센터(정중앙)을 기준으로 동일한 간격으로 정렬 
+                space-between: 양끝을 붙이고 사이에 있는것들을 일정한 간격으로 정렬 */
+                /* justify-content(주축) */
+            justify-content: center;
+            /* align-items(교차축): 안에 있는 요소들을 정렬할 때 / position = 겹쳐야할때만 사용 */
+            align-items: center;
+            flex-wrap: wrap; /* 자동 줄바꿈(페이지 정렬할때 -> 요소가 가득차면 자동 줄바꿈 ex)네이버 이미지, 유튜브 홈화면) */
+            
+
+            border: 1px solid #000;
+            height: 400px;
+        }
+        
+        .box1 {
+            border: 1px solid #000;
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+    </div>
+</body>
+</html>

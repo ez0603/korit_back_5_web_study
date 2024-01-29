@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input:active {
+            background-color: #222;
+        }
+        input:focus {
+            background-color: pink;
+        }
+        /* input은 focus가 더 상위 */
+        button {
+            border: 1px solid red;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: red;
+        }
+
+        button:active {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <input type="text">
+    <button>확인</button>
+</body>
+</html>

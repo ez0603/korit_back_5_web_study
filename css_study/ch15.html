@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            
+            width: 400px;
+            height: 500px;
+            border: 1px solid #000;
+        }
+        .box{
+            align-items: center;
+            display: flex;
+            border: 1px solid #000;
+            height: 100%;
+            flex-direction: row;
+        }
+
+        .box:nth-of-type(2n) {
+            background-color: #dbdbdb;
+            padding-left:10px ;
+        }
+
+        .box > div {
+            border: 1px solid #000;
+            margin-right: 5px;
+            padding: 3px;
+        }
+        .box:nth-of-type(2n-1) {
+            padding-left: 10px;
+        }
+
+        .javascript {
+            background-color: rgb(248, 233, 15);
+            
+        }
+        .typescript {
+            background-color: rgb(22, 141, 238);
+            color: white
+        }
+        .c {
+            background-color: rgb(35, 82, 236);
+            color: white;
+        }
+        .java {
+            background-color: cadetblue;
+            color: white;
+        }
+        .python , .ms{
+            background-color: rgb(27, 121, 209);
+            color: white;
+        }
+        .react , .ap {
+            background-color: skyblue;
+            color: white;
+        }
+        .vue {
+            background-color: green;
+            color: white;
+        }
+        .jsp , .mss{
+            background-color: orangered;
+            color: white;
+        }
+        .spring ,.spb {
+            background-color: lightgreen;
+            color: white;
+        }
+        .or {
+            background-color: red;
+            color: white;
+        }
+        .app {
+            background-color: rgb(189, 182, 250);
+            color: white;
+        }
+        .pt {
+            background-color: rgb(144, 248, 112);
+            color: white;
+        }
+
+        
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">Language</div>
+        <div class="box">
+            <div class="javascript">JavaScript</div>
+            <div class="typescript">TypeScript</div>
+            <div class="c">C++</div>
+            <div class="java">Java</div>
+            <div class="python">Python</div>
+         </div>
+        <div class="box">Web Front-End</div>
+        <div class="box">
+            <div class="react">React</div>
+            <div class="vue">Vue.js</div>
+        </div>
+        <div class="box">Web Back-End</div>
+        <div class="box">
+            <div class="jsp">JSP</div>
+            <div class="spring">Spring</div>
+            <div class="spb">Spting Boot</div>
+        </div>
+        <div class="box">DataBase</div>
+        <div class="box">
+            <div class="or">Oracle</div>
+            <div class="ms">MySQL</div>
+            <div class="mss">MS SQL Server</div>
+        </div>
+        <div class="box">etc</div>
+        <div class="box">
+            <div class="ap">Adobe Photoshop</div>
+            <div class="app">Adobe Premiere Pro</div>
+            <div class="pt">Pro Tools</div>
+        </div>
+    </div>
+</body>
+</html>
