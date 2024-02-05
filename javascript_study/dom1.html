@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="search" value="테스트검색">
+    <input type="text" class="inputs">
+    <input type="text" class="inputs">
+
+    <script>
+        const searchInput = document.getElementById("search");  // 객체가 변하지 않기 때문에 상수(const)사용
+        // console.log(document.getElementById("search")); // 문서에서 요소의 id를 가져옴
+        console.log(searchInput.value);
+        searchInput.value = "검색내용"; 
+
+        const inputs = document.getElementsByClassName("inputs"); // class가 2개이기 때문에 리스트(배열)로 가져옴
+        console.log(inputs);
+        inputs[0].value = "aaa";
+        inputs[1].value = "bbb";
+
+        const inputs2 = document.getElementsByTagName("input");
+        console.log(inputs2);
+
+        // 선택자를 통한 요소가져오기 (요즘 방법)
+        const searchInput2 = document.querySelector("#search"); // search된 id들만 가지고 오기
+        const inputs3 = document.querySelector(".inputs"); // 첫번째 .inputs 클래스 요소
+        const inputs4 = document.querySelector("input") // 첫번재 input 태그 요소 
+        const inputs5 = document.querySelectorAll(".inputs") // All을 써야 class명이 input인 것들만 가지고 오기(리스트) -> All이 아니면 첫번째만 가지고 옴, ()괄호 안에 고급 선택자 사용 가능
+        const inputs6 = document.querySelectorAll("inputs") // All을 써야 태그 명이 input인 것들만 가지고 오기(리스트)
+
+
+    </script>
+</body>
+</html>
