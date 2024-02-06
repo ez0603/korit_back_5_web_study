@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" class="text-input">
+    </div>
+    <h1 class="preview"></h1>
+    <script>
+        const textInput = document.querySelector(".text-input");
+
+        function handleChangeInputValue(event) { // event = 매개변수
+            console.log(event);
+            // event.target; = document.querySelector(".text-input"); 같은 의미
+           
+
+        }
+
+        textInput.onclick = handleChangeInputValue;
+
+        textInput.onchange = (e) => { // e = 이벤트 객체를 의미 , onchange = 값에 변화가 생기면 이벤트 / onkeyup = 키보드에 입력이 일어날 때 즉시즉시
+            const preview = document.querySelector(".preview");
+            preview.innerHTML = e.target.value;
+            // preview.innerHTML = textInput.value; // 위와 같은 의미
+            console.log(e.keyCode);
+        }
+
+        textInput.onkeyup = (e) => {
+            if(e.keyCode === 13) { // 13 = enter키
+                alert(e.target.value); // enter을 치면 알림창이 뜸
+            }
+        }
+
+        textInput.focus(); // focus = 내가 원하는 input에 포커스
+
+    </script>
+</body>
+</html>

@@ -2,6 +2,14 @@
     box-sizing: border-box;
 }
 
+.contaiber {
+    display: flex;
+}
+
+.box-containers {
+    display: flex;
+}
+
 .box-container {
     display: flex;
     flex-wrap: wrap;

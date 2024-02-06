@@ -1,4 +1,6 @@
 .side-bar-layout {
+    /* display: none = 전체가 사라짐(보이지않음) */
+    display: none; 
     position: absolute;
     left: 0;
     top: 0;
@@ -7,15 +9,27 @@
     background-color: #33333311;
 }
 
+.side-bar-show {
+    display: block;
+}
+
 .side-bar-container {
+    position: absolute;
+    left: -320px; /* 슬라이딩 하는 느낌을 주기 위해 */
+    top: 0;
+    transition: left 0.5s ease-in-out;
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
     width: 320px;
     height: 100%;
     background-color: white;
     box-shadow: 1px 0px 10px #00000011;
-    
 }
+
+.side-bar-container-show {
+    left: 0px;
+}
+
 
 .side-bar-header {
     display: flex;
