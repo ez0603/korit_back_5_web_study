@@ -11,7 +11,7 @@
     <input type="text" class="inputs">
 
     <script>
-        const searchInput = document.getElementById("search");  // 객체가 변하지 않기 때문에 상수(const)사용
+        const searchInput = document.getElementById("search");  // 객체가 변하지 않기 때문에 상수(const)사용 / document = 문서 전체(객체) Element = 요소(태그)
         // console.log(document.getElementById("search")); // 문서에서 요소의 id를 가져옴
         console.log(searchInput.value);
         searchInput.value = "검색내용"; 
@@ -21,11 +21,11 @@
         inputs[0].value = "aaa";
         inputs[1].value = "bbb";
 
-        const inputs2 = document.getElementsByTagName("input");
+        const inputs2 = document.getElementsByTagName("input"); // 태그가 여러개이기 때문에 복수(s) / 리스트로 가져옴
         console.log(inputs2);
 
         // 선택자를 통한 요소가져오기 (요즘 방법)
-        const searchInput2 = document.querySelector("#search"); // search된 id들만 가지고 오기
+        const searchInput2 = document.querySelector("#search"); // search된 id들만 가지고 오기 -> #이 붙어있으면 id
         const inputs3 = document.querySelector(".inputs"); // 첫번째 .inputs 클래스 요소
         const inputs4 = document.querySelector("input") // 첫번재 input 태그 요소 
         const inputs5 = document.querySelectorAll(".inputs") // All을 써야 class명이 input인 것들만 가지고 오기(리스트) -> All이 아니면 첫번째만 가지고 옴, ()괄호 안에 고급 선택자 사용 가능

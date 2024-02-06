@@ -7,7 +7,7 @@ submitButton.onclick = () => { // onclick 속성 -> 버튼에 클릭이 일어�
     // alert(input.value); // alert = 알림창 역할, input안에있는 value값을 알림창에 출력
     const dataList = document.querySelector(".data-list");
     // innerHTML = 태그안에 자식태그
-    dataList.innerHTML += `<li>${input.value}</li>`; // += 자기자신 대입
+    dataList.innerHTML += `<li>${input.value}</li>`; // += 자기자신 대입, innerHTML = 태그 사이에 추가
 
 }
 

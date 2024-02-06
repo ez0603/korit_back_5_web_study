@@ -1,6 +1,8 @@
 function add(num1, num2) {
     console.log("num1: " + num1);
     console.log(`num2: ${num2}`) //  EL표현식 : 문자열 안에 변수 사용 가능
+    console.log("aa" + num1 + "bb" + num2 + "cc" + num1);
+    console.log(`aa${num1}bb${num2}cc${num1}`) // +를 안쓰고 EL표현식으로 사용 가능
     return num1 + num2; // return을 하고싶으면 넣고 안넣어도 상관 X
 }
 
@@ -15,7 +17,7 @@ console.log(addFunction(30, 40));
 let user = {
     username: "junil",
     password: "1234",
-    addFunction: function add(a, b) { // 함수의 이름을 변수명으로 변경 가능, 
+    addFunction: function add(a, b) { // 함수의 이름을 변수명으로 변경 가능
         return a + b
     } 
 }
@@ -42,6 +44,6 @@ let div = (a, b) => {
 
 console.log(div(10, 5));
 
-div = (a, b) => a / b;
+div = (a, b) => a / b; // 중괄호 생략하고 바로 값 리턴
 console.log(div(20, 5));
 console.log(div);

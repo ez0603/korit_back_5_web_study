@@ -24,4 +24,4 @@ console.log(n); // -> undefined 타입
 n = null;
 console.log(typeof(n)); // -> object 타입
 console.log(n); // -> null 출력
-console.log(() => {}); // [Function (anonymous)] 타입
+console.log(() => {}); // [Function (anonymous)] 타입 익명함수 (화살표함수 람다식)
