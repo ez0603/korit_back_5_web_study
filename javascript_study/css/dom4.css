@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+}
+
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* item = 한줄에 의해서만(wrap으로 나누었기 때문에), content = 전체 이기때문에 content로 해준다 */
+    justify-content: center;
+    align-content: flex-start; 
+    border: 1px solid #333;
+    width: 800px;
+    height: 600px;
+}
+
+.box {
+    margin: 10px;
+    border: 1px solid #333;
+    width: 100px;
+    height: 100px;
+}
+/* 한번 클릭했을때 파란색/ 한번더 클릭하면(두번) 빨간색 */
+.red-box {
+    background-color: red;
+}
+
+.blue-box {
+    background-color: blue;
+}
