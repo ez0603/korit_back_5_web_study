@@ -75,7 +75,7 @@ function handleEditTodoModalOpen(todoId) {
     const modal = document.querySelector(".root-modal");
     const title = modal.querySelector(".modal-title"); // modal.querySelector = root-modal안쪽에 있는 태그들 중 선택(modal객체 안에 있는 태그)
     const todoInput = modal.querySelector(".todo-input");
-    const submitButton = modal.querySelector(".modal-button"); // 첫번째만 가져오면 되기 때문에 All X
+    const submitButton = modal.querySelector(".modal-button"); // 여러개의 버튼 중 첫번째만 가져오면 되기 때문에 All X (다른 버튼은 html에서 onclick해줌)
     title.innerHTML = "수정하기";
 
     let todoListJson = localStorage.getItem("todoList");
@@ -88,7 +88,7 @@ function handleEditTodoModalOpen(todoId) {
     submitButton.onclick = () => handleEditTodoSubmit(todoId); // 익명함수를 대입하여 todoId를 호출
 
     todoInput.onkeydown = (e) => { // 키가 눌러져있을때
-        if(e.ctrlKey && e.keyCode === 13) { // ctrl+enter
+        if(!e.shiftKey && e.keyCode === 13) { // shiftKey를 누르지 않은 상태에서 엔터 -> 확인 , shiftKey+엔터 = 줄바꿈
             submitButton.click();
         }
     }
@@ -103,10 +103,10 @@ function handleAddTodoSubmit() { // 확인과 취소를 눌렀을 때 둘 다 �
  
     // localStorage 안에 있는 todoList 키값을 가져온다
     let todoListJson = localStorage.getItem("todoList"); // 로컬 스토리지는 key,value값으로 구성
-    let todoList = todoListJson != null ? JSON.parse(todoListJson) : new Array(); // JSON형태로 있던걸 다시 객체로 변환해서
+    let todoList = todoListJson != null ? JSON.parse(todoListJson) : new Array(); // JSON형태로 있던걸 다시 객체로 변환해줌
     
     // todoId를 증가시켜줘야하기 때문에 todoList에 아무것도 들어있지 않으면 0, 값이 존재한다면 배열 제일 마지막 아이디값 가져옴
-    let lastTodoId = todoList.length === 0 ? 0 : todoList[todoList.length - 1].todoId; 
+    let lastTodoId = todoList.length === 0 ? 0 : todoList[todoList.length - 1].todoId; // length에 -1을 해주는 이유 = 인덱스 값은 0부터 시작하기 때문
     
     let todoObject = { // 데이터 저장하기
         todoId: lastTodoId + 1,
