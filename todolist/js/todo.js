@@ -21,7 +21,8 @@ window.onload = () => {
 }
 
 function gettodoList() { // 화면이 띄어졌을때 li태그 안에 있는것들을 반복, 함수로 정의
-    const todoContentList = document.querySelector(".todo-content-list");
+    const todoContentList = docume
+    nt.querySelector(".todo-content-list");
 
     const todoLsitJson = localStorage.getItem("todoList");
     const todoList = todoLsitJson !== null ? JSON.parse(todoLsitJson) : new Array();
