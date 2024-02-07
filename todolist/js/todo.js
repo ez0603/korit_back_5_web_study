@@ -1,21 +1,23 @@
 window.onload = () => {
     gettodoList();
 
-    let arr = [1,2,3,4,5,6,7,8,9,10];
-    console.log(arr);
+    // let arr = [1,2,3,4,5,6,7,8,9,10];
+    // console.log(arr);
 
-    let newArr = [];
+    // let newArr = [];
 
-    for(let i = 0; i < arr.length; i++) {
-        if(arr[i] % 2 === 0) {
-            newArr.push(arr[i]);
-        }
-    }
+    // for(let i = 0; i < arr.length; i++) {
+    //     if(arr[i] % 2 === 0) {
+    //         newArr.push(arr[i]);
+    //     }
+    // }
 
-    console.log(newArr);
+    // console.log(newArr);
 
-    let newArr2 = arr.filter(num => num % 2 === 0); // 람다식 , filter = 새로운 배열을 만들어줌
-    console.log(newArr2); 
+    // let newArr2 = arr.filter(num => num % 2 === 0); // 람다식 , filter = 새로운 배열을 만들어줌
+    // console.log(newArr2); 
+
+    
 }
 
 function gettodoList() { // 화면이 띄어졌을때 li태그 안에 있는것들을 반복, 함수로 정의
@@ -44,7 +46,7 @@ function gettodoList() { // 화면이 띄어졌을때 li태그 안에 있는것�
                 <button class="todo-edit-button" onclick="handleEditTodoModalOpen(${todo.todoId})"> 
                     <i class="fa-solid fa-pencil"></i>
                 </button>
-                <button class="todo-remove-button">
+                <button class="todo-remove-button" onclick="handleRemoveTodolClick(${todo.todoId})">
                     <i class="fa-regular fa-trash-can"></i>
                 </button>
             </div>
@@ -53,4 +55,18 @@ function gettodoList() { // 화면이 띄어졌을때 li태그 안에 있는것�
     }
 
     todoContentList.innerHTML += ``;
+}
+
+function handleRemoveTodolClick(todoId) { // 삭제버튼을 눌렀을 때 삭제
+    let selected = confirm("정말로 삭제하시겠습니까?");
+    if(!selected) {
+        return; // 취소(삭제 X) -> selected가 !(not)이기때문에 
+    }
+
+    const todoLsitJson = localStorage.getItem("todoList");
+    const todoList = todoLsitJson !== null ? JSON.parse(todoLsitJson) : new Array();
+    const newTodoList = todoList.filter(todo => todo.todoId !== todoId); // 첫번째 todo를 꺼냈을 때 todoId가 아니면 새로운리스트에 담는다
+
+    localStorage.setItem("todoList",JSON.stringify(newTodoList)); // 새로운 todoList에 옮겨줌
+    gettodoList(); // 리스트에서 제거
 }

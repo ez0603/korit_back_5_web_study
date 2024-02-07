@@ -62,6 +62,12 @@ function handleAddTodoModalOpen() {
     todoInput.value = ""; // 오픈이 될 때마다 비워주기
     submitButton.onclick = handleAddTodoSubmit;
 
+    todoInput.onkeydown = (e) => { // 키가 눌러져있을때
+        if(e.ctrlKey && e.keyCode === 13) { // ctrl+enter
+            submitButton.click();
+        }
+    }
+
     modal.classList.add("modal-show");
 }
 
@@ -78,18 +84,25 @@ function handleEditTodoModalOpen(todoId) {
     let findTodoByTodoId = todoList.filter(todo => todo.todoId === todoId)[0]; // todo객체에 있는 id, 매개변수 id 비교해서 같으면 들고옴, 
 
     todoInput.value = findTodoByTodoId.content; // findTodoByTodoId = todo 객체
-    submitButton.onclick = handleEditTodoSubmit; 
+    // submitButton.onclick = handleEditTodoSubmit; // 정의된 함수(handleEditTodoSubmit)를 대입하는것 
+    submitButton.onclick = () => handleEditTodoSubmit(todoId); // 익명함수를 대입하여 todoId를 호출
+
+    todoInput.onkeydown = (e) => { // 키가 눌러져있을때
+        if(e.ctrlKey && e.keyCode === 13) { // ctrl+enter
+            submitButton.click();
+        }
+    }
 
     modal.classList.add("modal-show");
 }
 
 function handleAddTodoSubmit() { // 확인과 취소를 눌렀을 때 둘 다 창이 꺼져야하기 때문에 remove
     const modal = document.querySelector(".root-modal");
-    const todoInput = modal.querySelector(".todo-input")
+    const todoInput = modal.querySelector(".todo-input");
     modal.classList.remove("modal-show");
  
     // localStorage 안에 있는 todoList 키값을 가져온다
-    let todoListJson = localStorage.getItem("todoList") // 로컬 스토리지는 key,value값으로 구성
+    let todoListJson = localStorage.getItem("todoList"); // 로컬 스토리지는 key,value값으로 구성
     let todoList = todoListJson != null ? JSON.parse(todoListJson) : new Array(); // JSON형태로 있던걸 다시 객체로 변환해서
     
     // todoId를 증가시켜줘야하기 때문에 todoList에 아무것도 들어있지 않으면 0, 값이 존재한다면 배열 제일 마지막 아이디값 가져옴
@@ -108,9 +121,34 @@ function handleAddTodoSubmit() { // 확인과 취소를 눌렀을 때 둘 다 �
     gettodoList(); // 추가된 리스트를 다시 들고옴(새로고침 하지않고 확인 버튼을 누르면 바로 추가됨)
 }
 
-function handleEditTodoSubmit() { // 수정버튼을 눌렀을 때
+function handleEditTodoSubmit(todoId) { // 수정버튼을 눌렀을 때, 매개변수로 키값인 todoId를 준다
     const modal = document.querySelector(".root-modal");
     modal.classList.remove("modal-show");
+
+    let todoListJson = localStorage.getItem("todoList");
+    let todoList = todoListJson != null ? JSON.parse(todoListJson) : new Array();
+
+    let findIndex = -1;
+
+    for(let i = 0; i < todoList.length; i++) {  // filter 사용 X -> 카피를 한 것(다른값)이기 때문에 for문으로 써줌
+        if(todoList[i].todoId === todoId) {
+            findIndex = i; 
+            break; 
+        }
+    } 
+
+    if(findIndex === -1) { // 반복이 다돌고도 -1을 찾지 못하면 오류처리
+        alert("수정오류 !")
+        return;
+    }
+
+    todoList[findIndex].content = document.querySelector(".todo-input").value; // 수정된 객체를 들고옴
+    todoList[findIndex].date = convertDateKor(new Date()); // todoList의 정보 바뀜
+
+    localStorage.setItem("todoList", JSON.stringify(todoList)); // 덮어씌움
+    gettodoList(); // 새로운 리스트를 들고옴
+
+
 }
 
 function handleCancelClick() {

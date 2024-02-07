@@ -19,3 +19,15 @@ button {
         outline: none;
     }
 }
+
+*::-webkit-scrollbar {
+    display: none; /* 스크롤 없어짐 */
+    width: 5px;
+    background-color: black;
+}
+
+*::-webkit-scrollbar-thumb { /* 움직이는 스크롤 */
+    border: 1px solid #dbdbdb;
+    width: 2px;
+    background-color: white;
+}
