@@ -44,6 +44,7 @@
 }
 
 .todo-input {
+    text-align: center;  /* 텍스트 안에서 좌우로 정렬 */
     outline: none;
     border: 1px solid #dbdbdb;
     padding: 10px;
