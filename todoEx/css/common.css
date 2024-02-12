@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+    color: #333;
+}
+
+button {
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: #fafafa;
+    cursor: pointer;
+    &:hover {
+        background-color: #eee;
+    }
+    &:active {
+        background-color: #aaa;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+*::-webkit-scrollbar {
+    display: none;
+    width: 5px;
+    background-color: black;
+}
+
+*::-webkit-scrollbar-thumb { 
+    border: 1px solid #dbdbdb;
+    width: 2px;
+    background-color: white;
+}
