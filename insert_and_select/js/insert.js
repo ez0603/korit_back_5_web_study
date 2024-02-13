@@ -19,7 +19,7 @@ function handleSubmitClick() {
     };
 
     fetch("http://localhost:8080/insert_and_select/data/addition", option)
-    .then((response) => {  // then = 비동기 처리가 정상처리 되었을 때 실행할 함수를 ()안에 넣음
+    .then((response) => {  // then(비동기) = 비동기 처리가 정상처리 되었을 때 실행할 함수를 ()안에 넣음
         response.json() 
         .then((json) => {
             console.log(json)
