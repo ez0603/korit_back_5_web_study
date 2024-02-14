@@ -1,4 +1,4 @@
-function handleSubmitClick() {
+async function handleSubmitClick() {
     const dataInputs = document.querySelectorAll(".data-inputs");
 
     const data = {
@@ -18,15 +18,32 @@ function handleSubmitClick() {
         body: jsonData
     };
 
-    fetch("http://localhost:8080/insert_and_select/data/addition", option)
-    .then((response) => {  // then(비동기) = 비동기 처리가 정상처리 되었을 때 실행할 함수를 ()안에 넣음
-        response.json() 
-        .then((json) => {
-            console.log(json)
-        });
-    });  // 비동기처리의 프로미스
+    try { // await을 쓸때는 try, catch 필수
+        const response = await fetch("http://localhost:8080/insert_and_select/data/addition", option)
+    
+        const json = await response.json();
+    
+        console.log(json);
 
-    console.log("test");
+        console.log("test");
+    } catch(error) {
+        console.log("에러 처리")
+        console.log(error);
+    }
+
+    // async, await을 써서 동기처리 하기 전
+    // fetch("http://localhost:8080/insert_and_select/data/addition", option) 
+    // .then((response) => {  // then(비동기) = 비동기 처리가 정상처리 되었을 때 실행할 함수를 ()안에 넣음
+    //     response.json() 
+    //     .then((json) => {
+    //         console.log(json)
+    //         console.log("test");
+    //     }); // 비동기처리의 프로미스
+    // }).catch((error) => { // 해당 요청이 가지 않았을 때 catch -> promise 자체가 예외처리됨
+    //     console.log("에러 처리")
+    //     console.log(error);
+    // });  
+
     // const dataObj = JSON.parse(jsonData); // json객체를 parse로 보내주면
     // console.log(dataObj); 
 }

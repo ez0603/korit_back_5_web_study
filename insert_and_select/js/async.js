@@ -1,4 +1,3 @@
-// const { reject } = require("async");
 
 console.log(1);
 console.log(2);
