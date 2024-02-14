@@ -20,15 +20,20 @@ async function handleSubmitClick() {
 
     try { // await을 쓸때는 try, catch 필수
         const response = await fetch("http://localhost:8080/insert_and_select/data/addition", option)
+
+        if(!response.ok) { // ok가 false면 = 이미 등록된 이름이라면
+            throw await response.json(); // catch로 이동
+        }
+
+        console.log(response);
     
         const json = await response.json();
     
         console.log(json);
 
         console.log("test");
-    } catch(error) {
-        console.log("에러 처리")
-        console.log(error);
+    } catch(error) {   
+        alert(error.errorMessage); // errorMessage = 키값 
     }
 
     // async, await을 써서 동기처리 하기 전

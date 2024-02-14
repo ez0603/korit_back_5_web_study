@@ -22,7 +22,7 @@ async function fx3() { // await = async함수 안에서만 사용 가능
     
 }
 
-async function handleSubmitClick2() { // async를 해줌으로써 비동기 처리됨
+async function handleSubmitClick2() { // async를 해줌으로써 동기 처리됨
     await fx3();
     
     // fx1().then((result) => {
