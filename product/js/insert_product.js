@@ -30,7 +30,7 @@ async function handleAddClick() {
 
     const data = {
         productName: dataInputs[0].value,
-        productPrice: dataInputs[1].value,
+        productPrice: parseInt(dataInputs[1].value), // parseInt를 해줘야 int
         productSize: dataInputs[2].value
     }
 
@@ -50,10 +50,11 @@ async function handleAddClick() {
         if(!response.ok) {
             throw await response.json();
         }
+        const responseData = await response.json();
 
-        alert("등록이 완료되었습니다.")
+        alert(`${responseData.successCount}건의 상품 추가 완료`);
     } catch (error) {
-        alert(error.errorMessage)
+        alert(error?.errorMessage); // ?. = 참조할 수 없을때(null,undifind)
     }
 
 }

@@ -9,11 +9,12 @@ async function handleSearchClick() {
         const productDataList = await response.json();
 
         const productList = document.querySelector(".product-list");
+        // productList.innerHTML += ``
 
         console.log(productDataList)
         productList.innerHTML = ``
 
-        for(let product of productDataList.data) {
+        for(let product of productDataList) {
             productList.innerHTML += `
                 <tr>
                     <th>${product.productId}</th>
@@ -23,6 +24,21 @@ async function handleSearchClick() {
                 </tr>
             `;
         }
+        // for(let product of productDataList.data) {
+        //     productDataList.innerHTML += ProductInfoTr(product);
+        // }
+
+        // function ProductInfoTr({ productId, productName, productPrice, productSize}){
+        //     return `
+        //         <tr>
+        //             <th>${product.productId}</th>
+        //             <th>${product.productName}</th>
+        //             <th>${product.productPrice}</th>
+        //             <th>${product.productSize}</th>
+        //         </tr>
+        //         `;
+        // }
+        
     } catch (error) {
         console.log(error)
     }
